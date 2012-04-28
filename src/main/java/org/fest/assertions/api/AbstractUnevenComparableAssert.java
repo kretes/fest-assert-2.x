@@ -29,7 +29,7 @@ import org.fest.assertions.core.UnevenComparableAssert;
 public abstract class AbstractUnevenComparableAssert<S extends AbstractUnevenComparableAssert<S, A>, A extends Comparable<A>>
     extends AbstractComparableAssert<S, A> implements UnevenComparableAssert<S, A> {
 
-  protected AbstractUnevenComparableAssert(A actual, Class<?> selfType) {
+  protected AbstractUnevenComparableAssert(A actual, Class<? extends S> selfType) {
     super(actual, selfType);
   }
 

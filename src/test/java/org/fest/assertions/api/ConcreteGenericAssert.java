@@ -20,7 +20,9 @@ package org.fest.assertions.api;
 public class ConcreteGenericAssert<A extends GenericIface<A>> extends
     AbstractAssert<ConcreteGenericAssert<A>, A> {
 
+  @SuppressWarnings("unchecked")
   public ConcreteGenericAssert(A actual) {
-    super(actual, ConcreteGenericAssert.class);
+    // protected AbstractAssert(A actual, Class<? extends S> selfType) {
+    super(actual,(Class<? extends ConcreteGenericAssert<A>>)  ConcreteGenericAssert.class);
   }
 }

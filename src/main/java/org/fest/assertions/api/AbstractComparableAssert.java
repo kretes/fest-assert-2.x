@@ -18,7 +18,8 @@ import java.util.Comparator;
 
 import org.fest.assertions.core.ComparableAssert;
 import org.fest.assertions.internal.Comparables;
-import org.fest.util.*;
+import org.fest.util.ComparatorBasedComparisonStrategy;
+import org.fest.util.VisibleForTesting;
 
 /**
  * Base class for all implementations of <code>{@link ComparableAssert}</code>.
@@ -35,7 +36,7 @@ public abstract class AbstractComparableAssert<S extends AbstractComparableAsser
 
   @VisibleForTesting Comparables comparables = Comparables.instance();
 
-  protected AbstractComparableAssert(A actual, Class<?> selfType) {
+  protected AbstractComparableAssert(A actual, Class<? extends S> selfType) {
     super(actual, selfType);
   }
 

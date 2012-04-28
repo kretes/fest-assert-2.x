@@ -44,7 +44,7 @@ public abstract class AbstractIterableAssert<S extends AbstractIterableAssert<S,
 
   @VisibleForTesting Iterables iterables = Iterables.instance();
 
-  protected AbstractIterableAssert(A actual, Class<?> selfType) {
+  protected AbstractIterableAssert(A actual, Class<? extends S> selfType) {
     super(actual, selfType);
   }
 

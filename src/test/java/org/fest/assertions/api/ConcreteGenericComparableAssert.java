@@ -20,7 +20,8 @@ package org.fest.assertions.api;
 public class ConcreteGenericComparableAssert<A extends GenericComparableIface<A>> extends
     AbstractComparableAssert<ConcreteGenericComparableAssert<A>, A> {
 
+  @SuppressWarnings("unchecked")
   public ConcreteGenericComparableAssert(A actual) {
-    super(actual, ConcreteGenericComparableAssert.class);
+    super(actual, (Class<? extends ConcreteGenericComparableAssert<A>>) ConcreteGenericComparableAssert.class);
   }
 }

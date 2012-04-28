@@ -54,9 +54,8 @@ public abstract class AbstractAssert<S extends AbstractAssert<S, A>, A> implemen
   protected final A actual;
   protected final S myself;
 
-  @SuppressWarnings("unchecked")
-  protected AbstractAssert(A actual, Class<?> selfType) {
-    myself = (S) selfType.cast(this);
+  protected AbstractAssert(A actual, Class<? extends S> selfType) {
+    myself = selfType.cast(this);
     this.actual = actual;
     info = new WritableAssertionInfo();
   }
