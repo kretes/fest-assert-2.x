@@ -58,6 +58,28 @@ public class ShouldContainString extends BasicErrorMessageFactory {
     return new ShouldContainString("expecting:<%s> to contain:<%s> (ignoring case)", actual, sequence,
         StandardComparisonStrategy.instance());
   }
+  
+  /**
+   * Creates a new <code>{@link ShouldContainString}</code>.
+   * @param actual the actual value in the failed assertion.
+   * @param sequence the sequence of values expected to be in {@code actual} only once.
+   * @return the created {@code ErrorMessageFactory}.
+   */
+  public static ErrorMessageFactory shouldContainOnce(String actual, String sequence) {
+	  return new ShouldContainString("expecting:<%s> to contain:<%s>%s only once", actual, sequence,
+			  StandardComparisonStrategy.instance());
+  }
+  
+  /**
+   * Creates a new <code>{@link ShouldContainString}</code>.
+   * @param actual the actual value in the failed assertion.
+   * @param sequence the sequence of values expected to be in {@code actual} only once.
+   * @return the created {@code ErrorMessageFactory}.
+   */
+  public static ErrorMessageFactory shouldContainOnce(String actual, String sequence, ComparisonStrategy comparisonStrategy) {
+    return new ShouldContainString("expecting:<%s> to contain:<%s>%s only once", actual, sequence,
+        comparisonStrategy);
+  }
 
   private ShouldContainString(String format, String actual, String sequence, ComparisonStrategy comparisonStrategy) {
     super(format, actual, sequence, comparisonStrategy);
